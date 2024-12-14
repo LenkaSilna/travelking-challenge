@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travelking Challenge</title>
+  </head>
+  <body class="page">
+    <header class="page__header">
+      <h1 class="page__title">Travelking - Kontrola Dostupnosti</h1>
+    </header>
+
+    <main class="page__content">
+      <form class="filters" id="filtersForm">
+        <div class="filters__group">
+          <label for="date-start" class="filters__label">Datum od</label>
+          <input
+            class="filters__input"
+            type="date"
+            id="date-start"
+            name="date-start"
+            value="2025-01-01"
+          />
+        </div>
+
+        <div class="filters__group">
+          <label for="date-end" class="filters__label">Datum do</label>
+          <input
+            class="filters__input"
+            type="date"
+            id="date-end"
+            name="date-end"
+            value="2025-06-30"
+          />
+        </div>
+
+        <div class="filters__group">
+          <label for="adults" class="filters__label">Dospělí</label>
+          <input class="filters__input" type="number" id="adults" name="adults" value="2" min="1" />
+        </div>
+
+        <div class="filters__group">
+          <label for="children" class="filters__label">Děti</label>
+          <input
+            class="filters__input"
+            type="number"
+            id="children"
+            name="children"
+            value="0"
+            min="0"
+          />
+        </div>
+
+        <button type="button" id="check-availability-btn" class="filters__submit">
+          Zkontrolovat dostupnost
+        </button>
+        <button type="button" id="reset-calendar-and-results-btn" class="filters__reset">
+          Reset výběru a výsledků
+        </button>
+      </form>
+
+      <div class="modal" id="calendar-modal">
+        <div class="modal__content">
+          <button class="modal__close" id="close-calendar-modal-btn">&times;</button>
+          <div id="dual-calendars" class="calendars-container">
+            <div id="calendar1-container" class="calendar"></div>
+          </div>
+          <div class="calendar__selected" id="selected-dates-info"></div>
+          <div id="calendar-tooltip"></div>
+          <button class="calendar__rooms-btn" id="check-rooms-btn">Zobrazit pokoje</button>
+        </div>
+      </div>
+
+      <div class="rooms" id="rooms-container"></div>
+      <div id="loader" class="loader" aria-hidden="true"></div>
+
+      <div class="gallery-modal" id="image-modal">
+        <div class="gallery-modal__content">
+          <button class="gallery-modal__close" id="close-image-modal">&times;</button>
+          <div class="gallery-modal__image-container">
+            <button class="gallery-modal__nav gallery-modal__nav--prev" id="prev-image">
+              &lt;
+            </button>
+            <img class="gallery-modal__image" id="modal-image" src="" alt="" />
+            <button class="gallery-modal__nav gallery-modal__nav--next" id="next-image">
+              &gt;
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="page__footer">
+      <p class="page__footer-text">© 2024 Travelking</p>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

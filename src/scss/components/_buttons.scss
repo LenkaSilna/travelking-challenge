@@ -1,0 +1,43 @@
+@use "../global" as *;
+@use "sass:color";
+
+.check-button {
+  @include btn-style($color-primary);
+
+  &:hover {
+    background-color: color.scale($color-primary, $lightness: -10%);
+  }
+}
+
+.calendar__rooms-btn {
+  @include btn-style($color-primary);
+  display: inline-block;
+  text-align: center;
+  color: $color-white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  background-color: $color-primary;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: color.scale($color-primary, $lightness: -10%);
+  }
+}
+
+.filters__reset {
+  background-color: $color-red;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: color.scale($color-red, $lightness: +10%);
+  }
+}

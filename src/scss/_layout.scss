@@ -1,0 +1,59 @@
+@use "global" as *;
+@use "sass:color";
+
+.page {
+  &__header,
+  &__footer {
+    background: $color-primary;
+    color: $color-white;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  &__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  &__footer {
+    font-size: 0.875rem;
+  }
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 200px;
+  }
+
+  &__label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  &__input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  &__submit {
+    @include btn-style($color-primary);
+
+    &:hover {
+      background-color: color.scale($color-primary, $lightness: -10%);
+    }
+  }
+}

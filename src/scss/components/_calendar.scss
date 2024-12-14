@@ -1,0 +1,141 @@
+@use "../global" as *;
+@use "sass:color";
+
+#calendar1-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.calendars-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    margin-top: $spacing2x;
+  }
+}
+
+.calendar {
+  &__selected {
+    margin: 1rem 0;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.flatpickr-innerContainer {
+  justify-content: center;
+}
+// Flatpickr overrides
+.flatpickr-calendar {
+  background: transparent;
+  width: 100% !important;
+  max-width: 100%;
+  box-shadow: none;
+  border: none;
+
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    padding: $spacing;
+  }
+
+  .flatpickr-months {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .flatpickr-weekdays {
+    text-align: center;
+    font-weight: bold;
+    padding: 0.5rem 0;
+  }
+
+  .flatpickr-days {
+    align-items: center;
+  }
+
+  .flatpickr-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 3em;
+    border-radius: 4px !important;
+    cursor: pointer;
+    height: auto;
+
+    &.selected {
+      background: $color-primary;
+      color: $color-white;
+    }
+
+    &.inRange {
+      border-radius: 0 !important;
+
+      &.startRange {
+        border-radius: 4px 0 0 4px;
+      }
+
+      &.endRange {
+        border-radius: 0 4px 4px 0;
+      }
+    }
+
+    .day-price {
+      display: block;
+      font-size: 0.75rem;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      line-height: 1;
+      background-color: $color-tertiary;
+      padding: $spacing-xxs $spacing-xs;
+      border-radius: 4px;
+      color: $color-white;
+
+      &.low {
+        background-color: $color-green;
+      }
+      &.medium {
+        background-color: $color-orange;
+      }
+      &.high {
+        background-color: $color-red;
+      }
+    }
+  }
+}
+
+.flatpickr-input {
+  display: none !important;
+  height: 0;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 0;
+  position: absolute;
+}
+
+.tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: $color-white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  z-index: 1000;
+  display: none;
+  pointer-events: none;
+}
+
+.no-data {
+  opacity: 0.5;
+  pointer-events: none;
+}
