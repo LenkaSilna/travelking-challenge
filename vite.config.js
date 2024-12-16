@@ -1,23 +1,28 @@
-export default ({ mode }) => ({
+import { defineConfig } from 'vite';
+import { viteSingleFile } from 'vite-plugin-singlefile';
+
+export default defineConfig(({ mode }) => ({
   root: 'src',
   base: mode === 'development' ? '/' : '/travelking-challenge/',
   publicDir: 'public',
   build: {
     outDir: '../dist',
-    assetsDir: 'assets',
+    assetsDir: '',
     emptyOutDir: true,
-    sourcemap: true,
+    sourcemap: false,
+    cssCodeSplit: false,
+    assetsInlineLimit: 100000000,
     rollupOptions: {
       input: {
         main: 'src/index.html',
       },
       output: {
-        entryFileNames: 'assets/[name].[hash].js',
-        chunkFileNames: 'assets/[name].[hash].js',
-        assetFileNames: 'assets/[name].[hash][extname]',
+        manualChunks: undefined,
+        inlineDynamicImports: true,
       },
     },
   },
+  plugins: [viteSingleFile()],
   server: {
     port: 3000,
   },
@@ -33,4 +38,4 @@ export default ({ mode }) => ({
       '@': '/src',
     },
   },
-});
+}));
