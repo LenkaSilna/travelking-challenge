@@ -18,6 +18,7 @@ A web application for checking room availability and making hotel reservations. 
 - Flatpickr for calendar
 - date-fns for date handling
 - axios for api requests
+- prettier for code formatting and consistent code style
 
 ### Setup
 
