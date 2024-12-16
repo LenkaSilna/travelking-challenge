@@ -18,7 +18,7 @@
   font-weight: bold;
   border: none;
   background-color: $color-primary;
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -28,16 +28,20 @@
   }
 }
 
-.filters__reset {
-  background-color: $color-red;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
+.filters {
+  &__reset {
+    @include btn-style($color-red);
 
-  &:hover {
-    background-color: color.scale($color-red, $lightness: +10%);
+    &:hover {
+      background-color: color.scale($color-red, $lightness: +10%);
+    }
+  }
+
+  &__submit {
+    @include btn-style($color-primary);
+
+    &:hover {
+      background-color: color.scale($color-primary, $lightness: -10%);
+    }
   }
 }

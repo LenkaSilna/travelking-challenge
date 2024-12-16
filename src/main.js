@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const calendarModal = document.getElementById('calendar-modal');
   const checkRoomsBtn = document.getElementById('check-rooms-btn');
   const resetButton = document.getElementById('reset-calendar-and-results-btn');
-  const roomsContainer = document.getElementById('rooms-container'); // Kontejner pro výsledky pokojů
-  const selectedDatesInfo = document.getElementById('selected-dates-info'); // Info o vybraných datech
+  const roomsContainer = document.getElementById('rooms-container');
+  const selectedDatesInfo = document.getElementById('selected-dates-info');
   const loader = document.getElementById('loader');
 
   const showLoader = () => {
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loader) loader.classList.remove('show');
   };
 
-  // Zpracování tlačítka "Zkontrolovat dostupnost"
   checkAvailabilityBtn.addEventListener('click', async () => {
     const adults = document.getElementById('adults').value;
     const children = document.getElementById('children').value;
@@ -49,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Zpracování tlačítka "Zobrazit pokoje"
   checkRoomsBtn.addEventListener('click', async () => {
     const { startDate, endDate } = getSelectedDates();
 
@@ -63,39 +61,34 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const roomsData = await fetchRooms({ startDate, endDate, adults, children });
 
-        // Po načtení dat schovat loader a zobrazit výsledky
         displayRooms(roomsData);
       } catch (error) {
-        console.error('Chyba při načítání pokojů:', error);
-        roomsContainer.innerHTML = '<p>Chyba při načítání výsledků. Zkuste to prosím znovu.</p>';
+        console.error('Error loading rooms:', error);
+        roomsContainer.innerHTML = '<p>Error loading results. Please try again.</p>';
       } finally {
-        // Schovat loader, ať už byl požadavek úspěšný nebo ne
         hideLoader();
       }
     } else {
-      // Pokud není vybráno správné datum
-      roomsContainer.innerHTML = '<p>Vyberte prosím platný rozsah dat.</p>';
+      // If no valid dates are selected, show a message
+      roomsContainer.innerHTML = '<p>Please select a valid date range.</p>';
     }
   });
 
-  // Zpracování tlačítka "Reset výběru a výsledků"
   resetButton.addEventListener('click', () => {
-    console.log('Resetting calendar and results');
-
-    // Reset kalendáře
+    // Reset calendar
     if (typeof resetCalendarSelection === 'function') {
       resetCalendarSelection();
     }
 
-    // Reset zobrazených výsledků pokojů
+    // Reset results container
     if (roomsContainer) {
       roomsContainer.innerHTML =
-        '<p>Výsledky byly resetovány. Vyberte nové datum a dostupnost.</p>';
+        '<p>The results have been reset. Select a new date and availability.</p>';
     }
 
-    // Reset informačního prvku o vybraných datech
+    // Reset info about selected dates
     if (selectedDatesInfo) {
-      selectedDatesInfo.textContent = 'Výběr byl resetován. Vyberte nové datum.';
+      selectedDatesInfo.textContent = 'The selection has been reset. Select a new date.';
     }
   });
 });

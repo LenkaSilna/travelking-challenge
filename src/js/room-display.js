@@ -116,7 +116,7 @@ export function displayRooms(response) {
       const details = document.createElement('div');
       details.classList.add('room-card__details');
       details.innerHTML = `
-                <span>${room.room_size_min}m² - max. ${room.max_capacity} osob</span>
+                <span>${room.room_size_min}m² - max. ${room.max_capacity} persons</span>
             `;
       infoSection.appendChild(details);
 
@@ -144,9 +144,9 @@ export function displayRooms(response) {
       priceBox.classList.add('room-card__price-box');
       priceBox.innerHTML = `
                 <div class="room-card__price-details">
-                    <span class="room-card__price-label">Cena za pobyt</span>
+                    <span class="room-card__price-label">Price per stay</span>
                     <span class="room-card__price-value">${room.full_formatted_price}</span>
-                    <span class="room-card__price-per-person">${room.full_price_pp}€ na osobu</span>
+                    <span class="room-card__price-per-person">${room.full_price_pp}€ per person</span>
                 </div>
             `;
       infoSection.appendChild(priceBox);

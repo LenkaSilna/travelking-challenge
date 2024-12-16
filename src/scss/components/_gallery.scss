@@ -61,16 +61,16 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.1);
+    background: $color-modal-overlay;
     border: none;
-    color: $color-text;
+    color: $color-white;
     font-size: 2rem;
     padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
 
     &:hover {
-      background: rgba(0, 0, 0, 0.2);
+      background: $color-modal-overlay;
     }
 
     &--prev {

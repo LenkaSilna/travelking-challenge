@@ -1,6 +1,5 @@
 import flatpickr from 'flatpickr';
 import { format, parseISO, addDays, differenceInDays } from 'date-fns';
-import { is } from 'date-fns/locale';
 
 let availabilityData = [];
 let selectedStartDate = null;
@@ -52,7 +51,7 @@ export function initCalendar() {
       const dateStr = format(currentDate, 'yyyy-MM-dd');
       const dayData = availabilityData.find((d) => d.date === dateStr);
       if (!dayData) {
-        return false; // Našli jsme nedostupný den v range
+        return false;
       }
       currentDate = addDays(currentDate, 1);
     }
@@ -89,12 +88,15 @@ export function initCalendar() {
 
       const selectedDayElem = instance.calendarContainer.querySelector('.flatpickr-day.selected');
       if (selectedDayElem) {
-        showTooltip(selectedDayElem, `Minimální délka pobytu: ${minNightsForSelectedStart} nocí`);
+        showTooltip(
+          selectedDayElem,
+          `Minimum length of stay: ${minNightsForSelectedStart} nights.`
+        );
       }
 
       if (infoElem) {
         const formatteddateStr = format(parseISO(dateStr), 'EEE. d.M. yyyy');
-        infoElem.textContent = `${formatteddateStr}. Zvolte konečný den (min. ${minNightsForSelectedStart} nocí).`;
+        infoElem.textContent = `${formatteddateStr}. Choose the final day (min. ${minNightsForSelectedStart} nights).`;
       }
     } else if (selectedDates.length === 2) {
       // Second date was selected
@@ -112,7 +114,7 @@ export function initCalendar() {
       ) {
         const selectedDayElem = instance.calendarContainer.querySelector('.flatpickr-day.selected');
         if (selectedDayElem) {
-          showTooltip(selectedDayElem, 'Vybraný rozsah obsahuje nedostupné dny.');
+          showTooltip(selectedDayElem, 'The selected range includes unavailable days.');
         }
         instance.setDate([startDate]);
         return;
@@ -144,7 +146,7 @@ export function initCalendar() {
       if (infoElem) {
         const formattedStartDate = format(parseISO(selectedStartDate), 'EEE. d.M. yyyy');
         const formattedEndDate = format(parseISO(selectedEndDate), 'EEE. d.M. yyyy');
-        infoElem.textContent = `${formattedStartDate} → ${formattedEndDate} | Celkem: ${totalPrice}€ (${nights} nocí)`;
+        infoElem.textContent = `${formattedStartDate} → ${formattedEndDate} | Total: ${totalPrice}€ (${nights} nights)`;
       }
     }
   };
@@ -211,8 +213,6 @@ export function resetCalendarSelection() {
   if (calendarInstances.length > 0) {
     calendarInstances.forEach((instance) => instance.clear());
   }
-
-  console.log('Kalendář byl resetován.');
 }
 
 export function getSelectedDates() {

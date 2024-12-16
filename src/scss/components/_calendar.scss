@@ -38,7 +38,9 @@
   width: 100% !important;
   max-width: 100%;
   box-shadow: none;
-  border: none;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 
   @media (max-width: 768px) {
     margin: 0 auto;
@@ -125,7 +127,7 @@
 
 .tooltip {
   position: absolute;
-  background: rgba(0, 0, 0, 0.8);
+  background: $color-tooltip-bg;
   color: $color-white;
   padding: 5px 10px;
   border-radius: 4px;

@@ -7,13 +7,13 @@
   </head>
   <body class="page">
     <header class="page__header">
-      <h1 class="page__title">Travelking - Kontrola Dostupnosti</h1>
+      <h1 class="page__title">Travelking - Check availability</h1>
     </header>
 
     <main class="page__content">
       <form class="filters" id="filtersForm">
         <div class="filters__group">
-          <label for="date-start" class="filters__label">Datum od</label>
+          <label for="date-start" class="filters__label">Date from</label>
           <input
             class="filters__input"
             type="date"
@@ -21,10 +21,8 @@
             name="date-start"
             value="2025-01-01"
           />
-        </div>
 
-        <div class="filters__group">
-          <label for="date-end" class="filters__label">Datum do</label>
+          <label for="date-end" class="filters__label">Date to</label>
           <input
             class="filters__input"
             type="date"
@@ -35,12 +33,10 @@
         </div>
 
         <div class="filters__group">
-          <label for="adults" class="filters__label">Dospělí</label>
+          <label for="adults" class="filters__label">Adults</label>
           <input class="filters__input" type="number" id="adults" name="adults" value="2" min="1" />
-        </div>
 
-        <div class="filters__group">
-          <label for="children" class="filters__label">Děti</label>
+          <label for="children" class="filters__label">Kids</label>
           <input
             class="filters__input"
             type="number"
@@ -51,12 +47,14 @@
           />
         </div>
 
-        <button type="button" id="check-availability-btn" class="filters__submit">
-          Zkontrolovat dostupnost
-        </button>
-        <button type="button" id="reset-calendar-and-results-btn" class="filters__reset">
-          Reset výběru a výsledků
-        </button>
+        <div>
+          <button type="button" id="check-availability-btn" class="filters__submit">
+            Check availability
+          </button>
+          <button type="button" id="reset-calendar-and-results-btn" class="filters__reset">
+            Reset selection and results
+          </button>
+        </div>
       </form>
 
       <div class="modal" id="calendar-modal">
@@ -67,7 +65,7 @@
           </div>
           <div class="calendar__selected" id="selected-dates-info"></div>
           <div id="calendar-tooltip"></div>
-          <button class="calendar__rooms-btn" id="check-rooms-btn">Zobrazit pokoje</button>
+          <button class="calendar__rooms-btn" id="check-rooms-btn">Show Rooms</button>
         </div>
       </div>
 

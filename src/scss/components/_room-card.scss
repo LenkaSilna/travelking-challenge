@@ -24,7 +24,7 @@
   background: $color-white;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px $color-modal-overlay;
 
   &__image-section {
     width: 100%;
@@ -74,7 +74,7 @@
     font-size: 0.9rem;
     color: $color-text;
     padding-top: 0.5rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid $color-white;
   }
 
   &__price-box {
