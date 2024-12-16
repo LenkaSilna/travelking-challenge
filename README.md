@@ -37,3 +37,13 @@ npm install
 ```bash
 npm run dev
 ```
+
+### Output
+After building, you will find the final production-ready file in:
+```
+dist.index.html
+```
+This file constains:
+- Inline CSS
+- Inline JavaScript
+- Fully functional web application in a single file
