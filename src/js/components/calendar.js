@@ -11,7 +11,6 @@ let calendarInstances = [];
 const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
 export function updateCalendarData(data) {
-  console.log('Loaded availability data:', data);
   availabilityData = data;
 }
 
@@ -126,7 +125,7 @@ export function initCalendar() {
         if (selectedDayElem) {
           showTooltip(
             selectedDayElem,
-            `Minimální délka pobytu je ${minNightsForSelectedStart} nocí.`
+            `The minimum length of stay is ${minNightsForSelectedStart} nights.`
           );
         }
         // Reset selection

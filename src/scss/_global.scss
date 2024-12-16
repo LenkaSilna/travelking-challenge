@@ -1,5 +1,5 @@
-@use "variables";
-@use "mixins";
+@use "./abstract/variables";
+@use "./abstract/mixins";
 
-@forward "variables";
-@forward "mixins";
+@forward "./abstract/variables";
+@forward "./abstract/mixins";

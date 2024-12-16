@@ -1,13 +1,13 @@
 import './scss/main.scss';
 
-import { fetchAvailability, fetchRooms } from './js/api.js';
+import { fetchAvailability, fetchRooms } from './js/api/api.js';
 import {
   initCalendar,
   getSelectedDates,
   updateCalendarData,
   resetCalendarSelection,
-} from './js/calendar.js';
-import { displayRooms } from './js/room-display.js';
+} from './js/components/calendar.js';
+import { displayRooms } from './js/components/room-display.js';
 import 'flatpickr/dist/flatpickr.min.css';
 
 document.addEventListener('DOMContentLoaded', () => {
