@@ -12,10 +12,12 @@ A web application for checking room availability and making hotel reservations. 
 - HTML5
 - SCSS
 - JavaScript (ES6+)
+- Vite
 
 #### Libraries:
 - Flatpickr for calendar
 - date-fns for date handling
+- axios for api requests
 
 ### Setup
 
